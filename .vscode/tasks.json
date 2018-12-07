@@ -2,17 +2,15 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Bygg Lindormsknekt (debug)",
+            "label": "Bygg getToDaChoppa (debug)",
             "type": "shell",
             "command": "g++",
             "args": [
                 "-g",
                 "-c",
-                "Lindormsknekt.cpp",
+                "main.cpp",
                 "-o",
-                ".\\bin\\Lindormsknekt.o",
-                "-I",
-                "lib\\SFML-2.5.1\\include"
+                ".\\bin\\main.o",
             ],
             "group": {
                 "isDefault": true,
@@ -20,37 +18,19 @@
             }
         },
         {
-            "label": "Länka Lindormsknekt (debug)",
+            "label": "Länka getToDaChoppa (debug)",
             "type": "shell",
             "command": "g++",
             "args": [
                 "-g",
-                "bin\\Lindormsknekt.o",
+                "bin\\main.o",
                 "-o",
-                "bin\\Lindormsknekt.exe",
-                "-L",
-                "lib\\SFML-2.5.1\\lib",
-                "-l",
-                "sfml-graphics-d",
-                "-l",
-                "sfml-window-d",
-                "-l",
-                "sfml-system-d"
+                "bin\\getToDaChoppa.exe",
             ],
             "dependsOn": [
                 "Clean",
                 "make bin",
-                "Bygg Lindormsknekt (debug)",
-                "DLL-Hell"
-            ]
-        },
-        {
-            "label": "DLL-Hell",
-            "type": "shell",
-            "command": "cp",
-            "args": [
-                "lib\\SFML-2.5.1\\bin\\*",
-                "bin\\."
+                "Bygg getToDaChoppa (debug)"
             ]
         },
         {

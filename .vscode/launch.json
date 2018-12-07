@@ -5,7 +5,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/Lindormsknekt.exe",
+            "program": "${workspaceFolder}/bin/getToDaChoppa.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -20,7 +20,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "Länka Lindormsknekt (debug)"
+            "preLaunchTask": "Länka getToDaChoppa (debug)"
         }
     ]
 }
