@@ -1,0 +1,70 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Bygg Lindormsknekt (debug)",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-c",
+                "Lindormsknekt.cpp",
+                "-o",
+                ".\\bin\\Lindormsknekt.o",
+                "-I",
+                "lib\\SFML-2.5.1\\include"
+            ],
+            "group": {
+                "isDefault": true,
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Länka Lindormsknekt (debug)",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "bin\\Lindormsknekt.o",
+                "-o",
+                "bin\\Lindormsknekt.exe",
+                "-L",
+                "lib\\SFML-2.5.1\\lib",
+                "-l",
+                "sfml-graphics-d",
+                "-l",
+                "sfml-window-d",
+                "-l",
+                "sfml-system-d"
+            ],
+            "dependsOn": [
+                "Clean",
+                "make bin",
+                "Bygg Lindormsknekt (debug)",
+                "DLL-Hell"
+            ]
+        },
+        {
+            "label": "DLL-Hell",
+            "type": "shell",
+            "command": "cp",
+            "args": [
+                "lib\\SFML-2.5.1\\bin\\*",
+                "bin\\."
+            ]
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "Get-ChildItem -Filter bin | Remove-Item -Recurse"
+        },
+        {
+            "label": "make bin",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "bin"
+            ]
+        }
+    ]
+}
